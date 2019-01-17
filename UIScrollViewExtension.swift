@@ -16,12 +16,12 @@ extension UIScrollView {
         static var headerView: UInt8 = 0
         static var footerView: UInt8 = 0
         static var topInsetView: UInt8 = 0
-        static var headerViewIsSticky: UInt = 0
-        static var kvoOffsetCallback: UInt = 0
-        static var offsetObserver: UInt = 0
-        static var insetObserver: UInt = 0
-        static var contentSizeObserver: UInt = 0
-        static var headerViewFrameObserver: UInt = 0
+        static var headerViewIsSticky: UInt8 = 0
+        static var kvoOffsetCallback: UInt8 = 0
+        static var offsetObserver: UInt8 = 0
+        static var insetObserver: UInt8 = 0
+        static var contentSizeObserver: UInt8 = 0
+        static var headerViewFrameObserver: UInt8 = 0
     }
     
     //MARK:- Observer를 중복으로 Add하는 방지를 위한 Bool 값들

@@ -95,9 +95,9 @@ extension UIScrollView {
             view.autoresizingMask = .flexibleWidth
             view.frame.size.width = self.frame.size.width
             self.addSubview(view)
-
+            
             self.contentInset = UIEdgeInsets(top: floor(self.contentInset.top + view.frame.size.height - beforeViewHeight), left: self.contentInset.left, bottom: self.contentInset.bottom, right: self.contentInset.right)
-           
+            
             addObserverHeaderViewFrame()
         }
     }
@@ -151,7 +151,7 @@ extension UIScrollView {
             topInsetView.backgroundColor = color
         }
         else {
-            topInsetView = UIView(frame: CGRect(x: 0, y: -self.contentInset.top, w: self.frame.size.width, h: height))
+            topInsetView = UIView(frame: CGRect(x: 0, y: -self.contentInset.top, width: self.frame.size.width, height: height))
             topInsetView?.autoresizingMask = .flexibleWidth
             topInsetView!.backgroundColor = color
             self.addSubview(topInsetView!)
@@ -259,8 +259,8 @@ extension UIScrollView {
         self.headerViewFrameObserver = headerView.observe(\.frame, options: [.old, .new]) { [weak self] (obj, change) in
             guard let `self` = self else { return }
             guard let newValue = change.newValue, let oldValue = change.oldValue else { return }
-            guard floor(newValue.h) != floor(oldValue.h) else { return }
-            self.contentInset = UIEdgeInsets(top: floor(self.contentInset.top + newValue.h - oldValue.h), left: self.contentInset.left, bottom: self.contentInset.bottom, right: self.contentInset.right)
+            guard floor(newValue.size.height) != floor(oldValue.size.height) else { return }
+            self.contentInset = UIEdgeInsets(top: floor(self.contentInset.top + newValue.size.height - oldValue.size.height), left: self.contentInset.left, bottom: self.contentInset.bottom, right: self.contentInset.right)
         }
     }
     
